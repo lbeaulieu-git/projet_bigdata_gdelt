@@ -2,6 +2,8 @@
 
 [comment]: <> (TABLE OF CONTENTS ===============================================================================================================)
 #### [Introduction](#_introduction)
+#### [Présentation du jeu de données](#_part1)
+#### [Choix des technologies](#_part2)
 
 
 
@@ -17,3 +19,8 @@ Ce projet a été réalisé dans le cadre du cours de bases de données non rela
 - pour une source de donnés passée en paramètre (gkg.SourceCommonName) affichez les thèmes, personnes, lieux dont les articles de cette sources parlent ainsi que le nombre d’articles et le ton moyen des articles (pour chaque thème/personne/lieu); permettez une agrégation par jour/mois/année.
 
 - étudiez l’évolution des relations entre deux pays (specifies en paramètre) au cours de l’année. Vous pouvez vous baser sur la langue de l’article, le ton moyen des articles, les themes plus souvent citées, les personalités ou tout element qui vous semble pertinent.
+
+# Présentation du jeu de données <a name="_part1"></a>
+
+
+# Choix des technologies <a name="_part2"></a>
