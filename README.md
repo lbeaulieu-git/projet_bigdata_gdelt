@@ -1,9 +1,9 @@
 # Projet GDELT
 
 [comment]: <> (TABLE OF CONTENTS ===============================================================================================================)
-#### [Introduction](#_introduction)
-#### [Présentation du jeu de données](#_part1)
-#### [Choix des technologies](#_part2)
+##### [Introduction](#_introduction)
+##### [Présentation du jeu de données](#_part1)
+##### [Choix des technologies](#_part2)
 
 
 
