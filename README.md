@@ -1,13 +1,14 @@
 # Projet GDELT
 
+[comment]: <> (TABLE OF CONTENTS ===============================================================================================================)
 ### [Introduction](#test)
 
+
+
+[comment]: <> (=================================================================================================================================)
+
 # Introduction
 
-[comment]: <> (This is a comment, it will not be included)
-
-
-# Introduction
 Ce projet a été réalisé dans le cadre du cours de bases de données non relationnelles du MS Big Data de Télécom Paris. L'objectif est proposer un système de stockage distribué, résilient et performant pour repondre aux question suivantes :
 - afficher le nombre d’articles/évènements qu’il y a eu pour chaque triplet (jour, pays de l’évènement, langue de l’article).
 
