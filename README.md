@@ -1,5 +1,4 @@
-# projet_bigdata_gdelt
-# Table of contents
+# Projet GDELT
 
 ### [Introduction](#test)
 
