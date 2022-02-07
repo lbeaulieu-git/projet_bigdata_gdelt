@@ -21,6 +21,16 @@ Ce projet a été réalisé dans le cadre du cours de bases de données non rela
 - étudiez l’évolution des relations entre deux pays (specifies en paramètre) au cours de l’année. Vous pouvez vous baser sur la langue de l’article, le ton moyen des articles, les themes plus souvent citées, les personalités ou tout element qui vous semble pertinent.
 
 # Présentation du jeu de données <a name="_part1"></a>
-![This is an image](figures/tables_schema.PNG)
+Le jeu de données est composé de trois tables. 
+- La table Export contient des informations sur des articles de presse : date de l'évènement, informations sur les acteurs mentionnés, informations sur l'évènement... 
+- La table Mentions met en relation les articles mentionnés dans d'autres.
+- La table GKG permet de connecter chaque élément ensemble : personnes, organisations, localisation, thème... pour rendre compte de ce qui se passe dans le monde.
+- it connects every person, organization, location, count, theme,
+
+
+<img src="figures/tables_schema.PNG" alt="drawing" width="200"/>
+
+
+
 
 # Choix des technologies <a name="_part2"></a>
