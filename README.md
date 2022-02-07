@@ -4,7 +4,7 @@
 ##### [Introduction](#_introduction)
 ##### [Présentation du jeu de données](#_part1)
 ##### [Choix des technologies](#_part2)
-
+##### [Configuration du cluster](#_part3)
 
 
 [comment]: <> (=================================================================================================================================)
@@ -31,6 +31,8 @@ Le jeu de données est composé de trois tables.
 
 <img src="figures/tables_schema.PNG" alt="drawing" width="700"/>
 
+Configuration du cluster
+
 
 
 
@@ -49,6 +51,9 @@ Pour réaliser ce projet, telles sont les contraintes qui nous sont imposées :
 
 
 <img src="figures/table_cass_vs_mongo.PNG" alt="drawing" width="800"/>
+
+# Configuration du cluster <a name="_part3"></a>
+[comment]: <> (=================================================================================================================================)
 
 
 
