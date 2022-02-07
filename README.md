@@ -34,3 +34,5 @@ Le jeu de données est composé de trois tables.
 
 
 # Choix des technologies <a name="_part2"></a>
+
+<img src="figures/table_cass_vs_mongo.PNG" alt="drawing" width="800"/>
