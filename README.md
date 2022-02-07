@@ -28,7 +28,7 @@ Le jeu de données est composé de trois tables.
 - it connects every person, organization, location, count, theme,
 
 
-<img src="figures/tables_schema.PNG" alt="drawing" width="1000"/>
+<img src="figures/tables_schema.PNG" alt="drawing" width="700"/>
 
 
 
