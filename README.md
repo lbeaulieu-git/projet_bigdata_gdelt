@@ -44,16 +44,21 @@ La technologie que nous avons retenu est Cassandra. Bien que la scalabilité ne 
 Enfin, les VM de l’école disposent d’une RAM limitée, rendant MongoDB peu opérant dans l’utilisation de la mémoire pour le stockage des données de travail.
 L’avantage va donc à Cassandra.
 
+<img src="figures/table_cass_vs_mongo.PNG" alt="drawing" width="800"/>
+
+<img src="figures/Choix_Technologique.png" alt="drawing" width="800"/>
+
+
+# Environnement technique <a name="_part3"></a>
+
 Pour réaliser ce projet, telles sont les contraintes qui nous sont imposées :
 -	Peu d’espace disque disponible (maximum 200 Go en tout, données système comprises)
 -	Peu de RAM sur les VM
 -	Tolérance à la panne d’un nœud nécessaire
 -	Accès aux données moyennement rapide (<5min ?)
 
+<img src="figures/Env_Tech.png" alt="drawing" width="800"/>
 
-<img src="figures/table_cass_vs_mongo.PNG" alt="drawing" width="800"/>
-
-<img src="figures/Choix_Technologique.png" alt="drawing" width="800"/>
 
 # Configuration du cluster <a name="_part3"></a>
 [comment]: <> (=================================================================================================================================)
@@ -129,8 +134,11 @@ rpc_address : 192.168.3.142
 
 Configuration de 
 
+# Data Pipeline <a name="_part4"></a>
 
-# Preprocessing <a name="_part4"></a>
+<img src="figures/Data_Pipeline.png" alt="drawing" width="800"/>
+
+# Preprocessing <a name="_part5"></a>
 
 ### Scrapping
 
@@ -489,6 +497,8 @@ _Afficher le nombre d’articles par évènement qu’il y a eu pour chaque trip
     return requete1
 `
 
+<img src="https://github.com/lbeaulieu-git/projet_bigdata_gdelt/blob/main/figures/Req1.png" alt="drawing" width="800"/>
+
 ### REQUETE 2
 
 _Pour un pays donné en paramètre, affichez les événements triés par le nombre de mentions (tri décroissant) et permettez une agrégation par jour/mois/année_
@@ -520,11 +530,13 @@ def requete_2(export):
     return requete2
 `
 
+<img src="https://github.com/lbeaulieu-git/projet_bigdata_gdelt/blob/main/figures/Req2.png" alt="drawing" width="800"/>
+
 ### REQUETE 3
 
 _Pour une source de donnés passée en paramètre, affichez les thèmes, personnes, lieux dont les articles de cette sources parlent ainsi que le nombre d’articles et le ton moyen des articles (pour chaque thème/personne/lieu); permettez une agrégation par jour/mois/année_
 
-**Construction de la table CSV pour la requete 2**
+**Construction de la table CSV pour la requete 3**
 
 `
 def requete_3(gkg):
@@ -560,6 +572,16 @@ def requete_3(gkg):
 
     return requete3
 `
+
+<img src="https://github.com/lbeaulieu-git/projet_bigdata_gdelt/blob/main/figures/Req3.png" alt="drawing" width="800"/>
+
+
+### REQUETE 4
+
+_Evolution des relations entre deux pays au cours de l’année_
+
+**Construction de la table CSV pour la requete 4**
+<img src="https://github.com/lbeaulieu-git/projet_bigdata_gdelt/blob/main/figures/Req4.png" alt="drawing" width="800"/>
 
 # Création des Keyspaces et des trables sur Cassadra <a name="_part6"></a>
 
