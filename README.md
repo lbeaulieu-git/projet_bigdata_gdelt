@@ -64,8 +64,8 @@ Installation des packages
 `sudo apt-get install -y openjdk-8-jre-headless`
 
 Vérification de la bonne exécution des commandes précédentes et des logs
-<img src="figures/java-1.PNG" alt="drawing" width="800"/>
-<img src="figures/java-2.PNG" alt="drawing" width="800"/>
+<img src="figures/java-1.png" alt="drawing" width="800"/>
+<img src="figures/java-2.png" alt="drawing" width="800"/>
 
 
 ### Installation de Cassandra
