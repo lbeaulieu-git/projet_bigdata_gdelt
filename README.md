@@ -77,12 +77,12 @@ Puisque le cluster est de taille restreinte, l'installation et la configuration 
 
 ## 2.1. Installation de Java 8 <a name="_part21"></a> 
 
-Mise à jour des tous les packages existants  
+Mise à jour des tous les packages existants :
 ```console
 $ sudo apt-get update -y
 ```
 
-Installation des packages  
+Installation des packages :
 ```console
 $ sudo apt-get install -y openjdk-8-jre-headless
 ```
@@ -95,7 +95,7 @@ Téléchargement de la dernière version stable (4.0.1) :
 $ wget https://dlcdn.apache.org/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz
 ```
 
-Configuration du fichier apache-cassandra-4.0.1/conf/cassandra.yaml
+Configuration du fichier apache-cassandra-4.0.1/conf/cassandra.yaml :
 
 ```console
 seeds : "<IP_nœeud_1>, <IP_nœeud_2>, ..."  
@@ -122,7 +122,7 @@ Téléchargement de la dernière version stable (0.10.0) :
 $ wget https://downloads.apache.org/zeppelin/zeppelin-0.10.0/zeppelin-0.10.0-bin-all.tgz
 ```
 
-Configuration du fichier zeppelin-0.10.0/conf/zeppelin-env.sh 
+Configuration du fichier zeppelin-0.10.0/conf/zeppelin-env.sh :
 
 ```console
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
@@ -132,7 +132,7 @@ export SPARK_HOME=/home/ubuntu/spark-3.1.2-bin-hadoop3.2
 export PYSPARK_PYTHON=python3
 ```
 
-Configuration du fichier zeppelin-0.10.0/conf/zeppelin-site.xml
+Configuration du fichier zeppelin-0.10.0/conf/zeppelin-site.xml :
 
 ```console
 <property>
