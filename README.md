@@ -39,16 +39,20 @@ Le jeu de données est composé de trois tables.
 - La table **MENTIONS** met en relation les articles qui se mentionnent entre eux.
 - La table **GKG** permet de connecter chaque élément des articles : personnes, organisations, localisation, thématiques...
 
-<center><img src="figures/tables_schema.PNG" alt="drawing" width="700"/></center>
+<img style="display: block; 
+           margin-left: auto;
+           margin-right: auto;
+           width: 30%;"
+             src="figures/tables_schema.PNG" alt="drawing" width="700"/>
 
 # Choix des technologies <a name="_part2"></a>
 [comment]: <> (=================================================================================================================================)
 
-<center><<img src="figures/Choix_Technologique.png" alt="drawing" width="800"/></center>
+<img src="figures/Choix_Technologique.png" alt="drawing" width="800"/>
 
 # Environnement technique <a name="_part3"></a>
 
-<center><<img src="figures/Env_Tech.png" alt="drawing" width="800"/></center>
+<img src="figures/Env_Tech.png" alt="drawing" width="800"/>
 
 # Configuration du cluster <a name="_part4"></a>
 [comment]: <> (=================================================================================================================================)
