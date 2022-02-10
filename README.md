@@ -129,8 +129,8 @@ Configuration de
     •	masterfilelist-translation.txt
     
 •	Stockage des URL de téléchargement “.zip” dans deux dataframes : 
-    •	Un dataframe pour masterfilelist.txt
-    •	Un dataframe pour masterfilelist-translation.txt
+    •	Un dataframe pour les URL scrappées masterfilelist.txt
+    •	Un dataframe pour les URL scrappées masterfilelist-translation.txt
     
 •	Ajout d’une colonne date aux dataframes en parsant la date contenu dans le lien de chaque URL “.zip”
 
@@ -152,8 +152,8 @@ Configuration de
 
 •	Lecture pour chaque type de csv du fichier en question et on le transforme en DataFrame
 
-•	Concaténation des dataframes
-  •	On obtient alors 6 dataframes:
+•	Concaténation des dataframes du même type
+  •	Obtention des 6 dataframes suivants :
       •	dataframe export (regroupe tous les fichiers “.csv” de type export qui ont été scrappé pour   une date de début et de fin
       •	dataframe mentions (regroupe tous les fichiers “.csv” de type mentions qui ont été scrappé pour une date de début et de fin
       •	dataframe gkg (regroupe tous les fichiers “.csv” de type mentions qui ont été scrappé pour une date de début et de fin
@@ -166,3 +166,4 @@ Configuration de
 •	Jointure entre des tables mentions_translation et mentions et export
 
 •	Sélection des colonnes en question pour la préparation des ".csv" contenant les informations utiles à chaque requête
+  • Parsing des colonnes récupérer les informations recherchés
