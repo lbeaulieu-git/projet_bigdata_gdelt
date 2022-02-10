@@ -67,17 +67,21 @@ Vérification de la bonne exécution des commandes précédentes et des logs
 
 ### Installation de Cassandra
 
-Téléchargement des fichiers d'installation  
+Téléchargement des fichiers d'installation
+
 `wget https://dlcdn.apache.org/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz`
 
 Vérification de l’intégrité du paquet téléchargé
+
 `gpg --print-md SHA256 apache-cassandra-4.0.1-bin.tar.gz`
 
 Décompression et suppression de l'archive
+
 `tar xzvf apache-cassandra-4.0.1-bin.tar.gz`  
+
 `rm -r apache-cassandra-4.0.1-bin.tar.gz`  
   
- <img src="figures/java-.png" alt="drawing" width="800"/>
+ <img src="figures/java-3.png" alt="drawing" width="800"/>
  
 ### Configuration de Cassandra
 Les machines utilisées pour le projet sont :  
