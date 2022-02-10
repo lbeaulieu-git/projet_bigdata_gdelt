@@ -4,14 +4,20 @@
 
 <div class="alert alert-block alert-info" style="margin-top: 20px">
 <ol>
-    <li><a href="#_introduction">Introduction</a></li>
+    <li><a href="#_part1">Introduction</a>
     	<ol>
-    		<li><a href="#_part1">Présentation du jeu de données</a></li>
-    		<li><a href="#_part2">Choix des technologies</a></li>
-        <li><a href="#_part3">Environnement technique</a></li>
+    		<li><a href="#_part11">Présentation du jeu de données</a></li>
+    		<li><a href="#_part12">Choix des technologies</a></li>
+            <li><a href="#_part13">Environnement technique</a></li>
     	</ol>
     </li>
-    <li><a href="#_part4">Configuration du cluster</a></li></li>
+    <li><a href="#_part2">Configuration du cluster</a>
+        <ol>
+    		<li><a href="#_part21">Installation de Java 8</a></li>
+    		<li><a href="#_part22">Installation et configuration de Cassandra</a></li>
+            <li><a href="#_part23">Installation et configuration de Zeppelin</a></li>
+    	</ol>
+    </li>
     <li><a href="#_part5">Data Pipeline</a></li>
     <li><a href="#_part6">Preprocessing</a></li>
     <li><a href="#_part7">Preparation des tables CSV</a></li>
@@ -23,7 +29,7 @@
 
 [comment]: <> (=================================================================================================================================)
 
-# Introduction <a name="_introduction"></a>
+# Introduction <a name="_part1"></a>
 
 Ce projet a été réalisé dans le cadre du cours de bases de données non relationnelles du MS Big Data de Télécom Paris.
 L'objectif est de concevoir un système de stockage distribué résilient aux pannes, et d'exécuter les requêtes suivantes basées sur la [base de données GDELT](https://andreiarion.github.io/Project2022.html) :
@@ -32,7 +38,7 @@ L'objectif est de concevoir un système de stockage distribué résilient aux pa
 - Lieux/personnes/thèmes, nombre d’articles et ton moyen pour une source donnée
 - Evolution des relations entre deux pays au cours de l’année
 
-# Présentation du jeu de données <a name="_part1"></a> 
+## Présentation du jeu de données <a name="_part11"></a> 
 [comment]: <> (=================================================================================================================================)
 Le jeu de données est composé de trois tables. 
 - La table **EXPORT** contient des informations sur des articles de presse : date de l'événement, informations sur les acteurs mentionnés, informations sur l'événement, etc... 
@@ -41,21 +47,21 @@ Le jeu de données est composé de trois tables.
 
 <img src="figures/tables_schema.PNG" alt="drawing" width="700"/>
 
-# Choix des technologies <a name="_part2"></a>
+## Choix des technologies <a name="_part12"></a>
 [comment]: <> (=================================================================================================================================)
 
 <img src="figures/Choix_Technologique.png" alt="drawing" width="800"/>
 
-# Environnement technique <a name="_part3"></a>
+## Environnement technique <a name="_part13"></a>
 
 <img src="figures/Env_Tech.png" alt="drawing" width="800"/>
 
-# Configuration du cluster <a name="_part4"></a>
+# Configuration du cluster <a name="_part2"></a>
 [comment]: <> (=================================================================================================================================)
 
 Puisque le cluster est de taille restreinte, l'installation et la configuration sont réalisées en ligne de commande directement sur chaque machine.
 
-### Installation de Java 8
+## Installation de Java 8 <a name="_part21"></a> 
 
 Mise à jour des tous les packages existants  
 ```console
@@ -67,7 +73,7 @@ Installation des packages
 $ sudo apt-get install -y openjdk-8-jre-headless
 ```
 
-### Installation et configuration de Cassandra
+## Installation et configuration de Cassandra <a name="_part22"></a> 
 
 Téléchargement de la dernière version stable (4.0.1) :
 
@@ -94,6 +100,7 @@ Le cluster est démarré et les 4 nœeuds sont opérationnels :
 
 <img src="figures/nodetool.png" width="800"/>
 
+## Installation et configuration de Zeppelin <a name="_part23"></a> 
 
 # Data Pipeline <a name="_part5"></a>
 
@@ -118,7 +125,7 @@ Le cluster est démarré et les 4 nœeuds sont opérationnels :
 **masterfilelist.txt**
 
 ```python
-  def masterfilelist(nb_url, start_date, end_date):
+def masterfilelist(nb_url, start_date, end_date):
       response = requests.get("http://data.gdeltproject.org/gdeltv2/masterfilelist.txt")
       content = response.content.decode("utf-8") 
       liens = content.split('\n')[-nb_url:]
@@ -207,7 +214,7 @@ def merge_table(df, df_translation):
 Si une URL “.zip” n’est pas valide alors on supprime le triplet d’URL complet
  
 ```python
- def clean_dataset(df):
+def clean_dataset(df):
     
     dk = df.groupby('date_str').count()[['id']]
     liste = dk[dk.id < 3].index.tolist()
@@ -551,7 +558,8 @@ _Evolution des relations entre deux pays au cours de l’année_
 **Construction de la table CSV pour la requete 4**
 <img src="https://github.com/lbeaulieu-git/projet_bigdata_gdelt/blob/main/figures/Req4.png" alt="drawing" width="800"/>
 
-# Création des Keyspaces et des trables sur Cassadra <a name="_part8"></a>
+# Création du keyspace et des tables Cassandra<a name="_part8"></a>
+
 
 # Requirements <a name="_part9"></a>
 
