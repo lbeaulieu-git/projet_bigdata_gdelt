@@ -59,12 +59,12 @@ Puisque le cluster est de taille restreinte, l'installation et la configuration 
 
 Mise à jour des tous les packages existants  
 ```console
-sudo apt-get update -y
+$ sudo apt-get update -y
 ```
 
 Installation des packages  
 ```console
-sudo apt-get install -y openjdk-8-jre-headless
+$ sudo apt-get install -y openjdk-8-jre-headless
 ```
 
 ### Installation et configuration de Cassandra
@@ -72,7 +72,7 @@ sudo apt-get install -y openjdk-8-jre-headless
 Téléchargement de la dernière version stable (4.0.1) :
 
 ```console
-wget https://dlcdn.apache.org/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz
+$ wget https://dlcdn.apache.org/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz
 ```
 
 Configuration du fichier apache-cassandra-4.0.1/conf/cassandra.yaml
@@ -91,6 +91,7 @@ $ apache-cassandra-4.0.1/bin/nodetool status
 ```
 
 Le cluster est démarré et les 4 nœeuds sont opérationnels :
+
 <img src="figures/nodetool.png" width="800"/>
 
 
@@ -142,11 +143,12 @@ Le cluster est démarré et les 4 nœeuds sont opérationnels :
       df = df.drop(columns=['date'])
 
       return df
-`
+```
 
 **masterfilelist-translation.txt**
 
-`def masterfilelist_translation(nb_url, start_date, end_date):
+```python
+def masterfilelist_translation(nb_url, start_date, end_date):
 
     response = requests.get("http://data.gdeltproject.org/gdeltv2/masterfilelist-translation.txt")
     content = response.content.decode("utf-8") 
@@ -175,20 +177,22 @@ Le cluster est démarré et les 4 nœeuds sont opérationnels :
     df = df.drop(columns=['type_csv', 'date'])
     
     return df
-`
+```
     
 ### Vérification de l'url
 
 Vérification de l’URL “.zip” avec la librairie python “validators”
 
-`def verify_url(u):
+```python
+def verify_url(u):
     if validators.url(u):
         return True
     else:
         return False
-`
+```
 
-`def merge_table(df, df_translation):
+```python
+def merge_table(df, df_translation):
     
     # - left join des tableaux
     # - Première séléction : Supprimons les lignes où des NaN apparait
@@ -198,11 +202,11 @@ Vérification de l’URL “.zip” avec la librairie python “validators”
     result['work'] = result['url'].apply(lambda x: verify_url(x))
     result['work_translation'] = result['url_translation'].apply(lambda x: verify_url(x))
     return result
-`
+```
  
  Si une URL “.zip” n’est pas valide alors on supprime le triplet d’URL complet
  
-`
+```python
  def clean_dataset(df):
     
     dk = df.groupby('date_str').count()[['id']]
@@ -219,13 +223,13 @@ Vérification de l’URL “.zip” avec la librairie python “validators”
         df = df.loc[df['date_str'] != item]
             
     return df
-`
+```
  
 ### Fusion des dataframes
 
 Fusion des 2 dataframes d’URL “.zip”
 
-`
+```python
 def concat_table(result):
     
     # Séparation des données de base et de translation ET concaténation
@@ -235,7 +239,7 @@ def concat_table(result):
     final = pd.concat([df_base, df_translation])
     
     return final
-`
+```
 
 ### Lecture des URL zip
 
@@ -243,10 +247,11 @@ def concat_table(result):
 
 •	Ouverture des fichiers “.zip” avec la librairie ZipFile. On obtient un fichier “.csv”
 
-•	Lecture pour chaque type de csv du fichier en question et on le transforme en DataFrame
+•	Lecture pour chaque type de csv du fichier en question et transformation en DataFrame
 
 •	Concaténation des dataframes du même type
-  •	Obtention des 6 dataframes suivants :
+
+On obtient les 6 DataFrames suivants :
       •	dataframe export (regroupe tous les fichiers “.csv” de type export qui ont été scrappé pour   une date de début et de fin
       •	dataframe mentions (regroupe tous les fichiers “.csv” de type mentions qui ont été scrappé pour une date de début et de fin
       •	dataframe gkg (regroupe tous les fichiers “.csv” de type mentions qui ont été scrappé pour une date de début et de fin
