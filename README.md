@@ -158,31 +158,31 @@ Configuration de
 **masterfilelist.txt**
 
 `
-def masterfilelist(nb_url, start_date, end_date):
-    response = requests.get("http://data.gdeltproject.org/gdeltv2/masterfilelist.txt")
-    content = response.content.decode("utf-8") 
-    liens = content.split('\n')[-nb_url:]
+  def masterfilelist(nb_url, start_date, end_date):
+      response = requests.get("http://data.gdeltproject.org/gdeltv2/masterfilelist.txt")
+      content = response.content.decode("utf-8") 
+      liens = content.split('\n')[-nb_url:]
 
-    liste = list()
-    for i in liens:
-        liste.append(i.split(" ")[-1])
+      liste = list()
+      for i in liens:
+          liste.append(i.split(" ")[-1])
 
-    df = pd.DataFrame(liste, columns=['url'])
-    df['date_str'] = df['url'].apply(lambda x: x.split("/")[-1].split(".")[0][0:12])
-    df = df.iloc[:df.shape[0]-1, :]
-    df["date"] = pd.to_datetime(df["date_str"], format='%Y%m%d%H%M')
+      df = pd.DataFrame(liste, columns=['url'])
+      df['date_str'] = df['url'].apply(lambda x: x.split("/")[-1].split(".")[0][0:12])
+      df = df.iloc[:df.shape[0]-1, :]
+      df["date"] = pd.to_datetime(df["date_str"], format='%Y%m%d%H%M')
 
-    start_datem = datetime.datetime.strptime(start_date, "%Y-%m-%d %H:%M:%S")
-    end_datem = datetime.datetime.strptime(end_date, "%Y-%m-%d %H:%M:%S")
-    df = df.loc[(df['date'] >= start_datem) & (df['date'] <= end_datem)]
-    
-    df['type_csv'] = df['url'].apply(lambda x: x.lower().split(".csv")[0].split(".")[-1])
+      start_datem = datetime.datetime.strptime(start_date, "%Y-%m-%d %H:%M:%S")
+      end_datem = datetime.datetime.strptime(end_date, "%Y-%m-%d %H:%M:%S")
+      df = df.loc[(df['date'] >= start_datem) & (df['date'] <= end_datem)]
 
-    df['id'] = df['date_str']+'_'+df['type_csv']
-    
-    df = df.drop(columns=['date'])
-    
-    return df
+      df['type_csv'] = df['url'].apply(lambda x: x.lower().split(".csv")[0].split(".")[-1])
+
+      df['id'] = df['date_str']+'_'+df['type_csv']
+
+      df = df.drop(columns=['date'])
+
+      return df
 `
 
 **masterfilelist-translation.txt**
