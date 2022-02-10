@@ -28,14 +28,10 @@
     	</ol>
     </li>
     <li><a href="#_part7">Preparation des tables CSV</a></li>
-    
     <li><a href="#_part4">Intégration des données</a>
     <li><a href="#_part8">Création du keyspace et des tables Cassandra</a></li>
-    
 </ol>
 </div>
-
-
 [comment]: <> (=================================================================================================================================)
 
 # 1. Introduction <a name="_part1"></a>
@@ -134,10 +130,9 @@ from urllib.request import urlopen
 import datetime
 import time
 import sys
+```
 
-
-
-## 3.1. Requirements <a name="_part31"></a>
+## 3.1. Scraping des données <a name="_part32"></a>
 
 •	Stockage des URL de téléchargement “.zip” dans deux dataframes : 
     •	Un dataframe pour les URL scrappées masterfilelist.txt
