@@ -95,27 +95,27 @@ tp-hadoop-19 | 192.168.3.142
 
 Configuration du fichier apache-cassandra-4.0.1/conf/cassandra.yaml
 
-**Sur tp-hadoop-15 :**
+**Sur tp-hadoop-15 :**  
 seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"
 listen_address : 192.168.3.187
 rpc_address : 192.168.3.187
 
-**Sur tp-hadoop-12 :**
+**Sur tp-hadoop-12 :**  
 seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"
 listen_address : 192.168.3.93
 rpc_address : 192.168.3.93
 
-**Sur tp-hadoop-33 :**
+**Sur tp-hadoop-33 :**  
 seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"
 listen_address : 192.168.3.46
 rpc_address : 192.168.3.46
 
-**Sur tp-hadoop-11 :**
+**Sur tp-hadoop-11 :**  
 seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"
 listen_address : 192.168.3.168
 rpc_address : 192.168.3.168
 
-**Sur tp-hadoop-19 :**
+**Sur tp-hadoop-19 :**  
 seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"
 listen_address : 192.168.3.142
 rpc_address : 192.168.3.142
