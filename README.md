@@ -29,7 +29,7 @@
 
 [comment]: <> (=================================================================================================================================)
 
-# Introduction <a name="_part1"></a>
+# 1. Introduction <a name="_part1"></a>
 
 Ce projet a été réalisé dans le cadre du cours de bases de données non relationnelles du MS Big Data de Télécom Paris.
 L'objectif est de concevoir un système de stockage distribué résilient aux pannes, et d'exécuter les requêtes suivantes basées sur la [base de données GDELT](https://andreiarion.github.io/Project2022.html) :
@@ -38,7 +38,7 @@ L'objectif est de concevoir un système de stockage distribué résilient aux pa
 - Lieux/personnes/thèmes, nombre d’articles et ton moyen pour une source donnée
 - Evolution des relations entre deux pays au cours de l’année
 
-## Présentation du jeu de données <a name="_part11"></a> 
+## 1.1. Présentation du jeu de données <a name="_part11"></a> 
 [comment]: <> (=================================================================================================================================)
 Le jeu de données est composé de trois tables. 
 - La table **EXPORT** contient des informations sur des articles de presse : date de l'événement, informations sur les acteurs mentionnés, informations sur l'événement, etc... 
@@ -47,21 +47,21 @@ Le jeu de données est composé de trois tables.
 
 <img src="figures/tables_schema.PNG" alt="drawing" width="700"/>
 
-## Choix des technologies <a name="_part12"></a>
+## 1.2. Choix des technologies <a name="_part12"></a>
 [comment]: <> (=================================================================================================================================)
 
 <img src="figures/Choix_Technologique.png" alt="drawing" width="800"/>
 
-## Environnement technique <a name="_part13"></a>
+## 1.3. Environnement technique <a name="_part13"></a>
 
 <img src="figures/Env_Tech.png" alt="drawing" width="800"/>
 
-# Configuration du cluster <a name="_part2"></a>
+# 2. Configuration du cluster <a name="_part2"></a>
 [comment]: <> (=================================================================================================================================)
 
 Puisque le cluster est de taille restreinte, l'installation et la configuration sont réalisées en ligne de commande directement sur chaque machine.
 
-## Installation de Java 8 <a name="_part21"></a> 
+## 2.1. Installation de Java 8 <a name="_part21"></a> 
 
 Mise à jour des tous les packages existants  
 ```console
@@ -73,7 +73,7 @@ Installation des packages
 $ sudo apt-get install -y openjdk-8-jre-headless
 ```
 
-## Installation et configuration de Cassandra <a name="_part22"></a> 
+## 2.2. Installation et configuration de Cassandra <a name="_part22"></a> 
 
 Téléchargement de la dernière version stable (4.0.1) :
 
@@ -100,9 +100,9 @@ Le cluster est démarré et les 4 nœeuds sont opérationnels :
 
 <img src="figures/nodetool.png" width="800"/>
 
-## Installation et configuration de Zeppelin <a name="_part23"></a> 
+## 2.3. Installation et configuration de Zeppelin <a name="_part23"></a> 
 
-# Data Pipeline <a name="_part5"></a>
+# 3. Data Pipeline <a name="_part5"></a>
 
 <img src="figures/Data_Pipeline.png" alt="drawing" width="800"/>
 
