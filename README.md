@@ -73,3 +73,5 @@ Vérification de la bonne exécution des commandes précédentes et des logs
 Téléchargement des fichiers d'installation
 `wget https://dlcdn.apache.org/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz`
 
+
+
