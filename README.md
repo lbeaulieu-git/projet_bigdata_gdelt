@@ -19,10 +19,19 @@
             <li><a href="#_part23">Installation et configuration de Zeppelin</a></li>
     	</ol>
     </li>
-    <li><a href="#_part6">Preprocessing</a></li>
+    <li><a href="#_part3">Preprocessing</a>
+        <ol>
+            <li><a href="#_part31">Requirements</a></li>
+    		<li><a href="#_part32">Installation de Java 8</a></li>
+    		<li><a href="#_part33">Installation et configuration de Cassandra</a></li>
+            <li><a href="#_part34">Installation et configuration de Zeppelin</a></li>
+    	</ol>
+    </li>
     <li><a href="#_part7">Preparation des tables CSV</a></li>
-    <li><a href="#_part8">Création des Keyspaces et des trables sur Cassandra</a></li>
-    <li><a href="#_part9">Requirements</a></li>
+    
+    <li><a href="#_part4">Intégration des données</a>
+    <li><a href="#_part8">Création du keyspace et des tables Cassandra</a></li>
+    
 </ol>
 </div>
 
@@ -108,9 +117,27 @@ Le cluster est démarré et les 4 nœeuds sont opérationnels :
 ## 2.3. Installation et configuration de Zeppelin <a name="_part23"></a> 
 
 
-# Preprocessing <a name="_part6"></a>
+# 3. Preprocessing <a name="_part3"></a>
 
-### Scrapping
+Cette partie contient les principales fonctions utilisées pour le preprocessing des données. La sortie finale est un ensemble de fichiers CSV qui seront intégrés aux tables Cassandra (voir <a href="#_part4">4. Intégration des données</a>).
+
+## 3.1. Requirements <a name="_part31"></a>
+
+```python
+import validators
+import requests
+import pandas as pd
+import numpy as np
+from io import BytesIO
+from zipfile import ZipFile
+from urllib.request import urlopen
+import datetime
+import time
+import sys
+
+
+
+## 3.1. Requirements <a name="_part31"></a>
 
 •	Stockage des URL de téléchargement “.zip” dans deux dataframes : 
     •	Un dataframe pour les URL scrappées masterfilelist.txt
@@ -560,19 +587,7 @@ _Evolution des relations entre deux pays au cours de l’année_
 **Construction de la table CSV pour la requete 4**
 <img src="https://github.com/lbeaulieu-git/projet_bigdata_gdelt/blob/main/figures/Req4.png" alt="drawing" width="800"/>
 
-# Création du keyspace et des tables Cassandra<a name="_part8"></a>
+# 4. Intégration des données <a name="_part4"></a>
 
+## 4.1. Création du keyspace et des tables Cassandra<a name="_part4"></a>
 
-# Requirements <a name="_part9"></a>
-
-```python
-import validators
-import requests
-import pandas as pd
-import numpy as np
-from io import BytesIO
-from zipfile import ZipFile
-from urllib.request import urlopen
-import datetime
-import time
-import sys
