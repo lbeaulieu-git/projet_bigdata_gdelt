@@ -39,11 +39,7 @@ Le jeu de données est composé de trois tables.
 - La table **MENTIONS** met en relation les articles qui se mentionnent entre eux.
 - La table **GKG** permet de connecter chaque élément des articles : personnes, organisations, localisation, thématiques...
 
-<img style="display: block; 
-           margin-left: auto;
-           margin-right: auto;
-           width: 30%;"
-             src="figures/tables_schema.PNG" alt="drawing" width="700"/>
+<img src="figures/tables_schema.PNG" alt="drawing" width="700"/>
 
 # Choix des technologies <a name="_part2"></a>
 [comment]: <> (=================================================================================================================================)
@@ -57,6 +53,8 @@ Le jeu de données est composé de trois tables.
 # Configuration du cluster <a name="_part4"></a>
 [comment]: <> (=================================================================================================================================)
 
+Puisque le cluster est de taille restreinte, l'installation et la configuration sont réalisées en ligne de commande directement sur chaque machine.
+
 ### Installation de Java 8
 
 Mise à jour des tous les packages existants  
@@ -65,46 +63,18 @@ Mise à jour des tous les packages existants
 Installation des packages  
 `sudo apt-get install -y openjdk-8-jre-headless`
 
-Vérification de la bonne exécution des commandes précédentes et des logs  
-<img src="figures/java-1.png" alt="drawing" width="800"/>  
-  
-<img src="figures/java-2.png" alt="drawing" width="800"/>
+### Installation et configuration de Cassandra
 
-
-### Installation de Cassandra
-
-Téléchargement des fichiers d'installation
+Téléchargement de la dernière version stable (4.0.1) :
 
 `wget https://dlcdn.apache.org/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz`
 
-Vérification de l’intégrité du paquet téléchargé
-
-`gpg --print-md SHA256 apache-cassandra-4.0.1-bin.tar.gz`
-
-Décompression et suppression de l'archive
-
-`tar xzvf apache-cassandra-4.0.1-bin.tar.gz`  
-
-`rm -r apache-cassandra-4.0.1-bin.tar.gz`  
- 
- L'installation s'est correctement terminée :
- <img src="figures/java-3.png" alt="drawing" width="800"/>
- 
-### Configuration de Cassandra
-Les machines utilisées pour le projet sont :  
-  
-tp-hadoop-15 | 192.168.3.187  
-tp-hadoop-12 | 192.168.3.93  
-tp-hadoop-33 | 192.168.3.46  
-tp-hadoop-11 | 192.168.3.168  
-tp-hadoop-19 | 192.168.3.142  
-
 Configuration du fichier apache-cassandra-4.0.1/conf/cassandra.yaml
 
-**Sur tp-hadoop-15 :**  
-seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
+```seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
 listen_address : 192.168.3.187  
-rpc_address : 192.168.3.187  
+rpc_address : 192.168.3.187
+```
 
 **Sur tp-hadoop-12 :**  
 seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
