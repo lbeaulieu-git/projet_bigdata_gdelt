@@ -71,10 +71,11 @@ Téléchargement de la dernière version stable (4.0.1) :
 
 Configuration du fichier apache-cassandra-4.0.1/conf/cassandra.yaml
 
-```seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
+``
+seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
 listen_address : 192.168.3.187  
 rpc_address : 192.168.3.187
-```
+``
 
 **Sur tp-hadoop-12 :**  
 seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
