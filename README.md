@@ -7,8 +7,9 @@
     <li><a href="#_part1">Introduction</a>
     	<ol>
     		<li><a href="#_part11">Présentation du jeu de données</a></li>
-    		<li><a href="#_part12">Choix des technologies</a></li>
-            <li><a href="#_part13">Environnement technique</a></li>
+            <li><a href="#_part12">Environnement technique</a></li>
+    		<li><a href="#_part13">Choix des technologies</a></li>
+            <li><a href="#_part14">Architecture</a></li>
     	</ol>
     </li>
     <li><a href="#_part2">Configuration du cluster</a>
@@ -18,7 +19,6 @@
             <li><a href="#_part23">Installation et configuration de Zeppelin</a></li>
     	</ol>
     </li>
-    <li><a href="#_part5">Data Pipeline</a></li>
     <li><a href="#_part6">Preprocessing</a></li>
     <li><a href="#_part7">Preparation des tables CSV</a></li>
     <li><a href="#_part8">Création des Keyspaces et des trables sur Cassandra</a></li>
@@ -30,6 +30,7 @@
 [comment]: <> (=================================================================================================================================)
 
 # 1. Introduction <a name="_part1"></a>
+[comment]: <> (=================================================================================================================================)
 
 Ce projet a été réalisé dans le cadre du cours de bases de données non relationnelles du MS Big Data de Télécom Paris.
 L'objectif est de concevoir un système de stockage distribué résilient aux pannes, et d'exécuter les requêtes suivantes basées sur la [base de données GDELT](https://andreiarion.github.io/Project2022.html) :
@@ -39,7 +40,7 @@ L'objectif est de concevoir un système de stockage distribué résilient aux pa
 - Evolution des relations entre deux pays au cours de l’année
 
 ## 1.1. Présentation du jeu de données <a name="_part11"></a> 
-[comment]: <> (=================================================================================================================================)
+
 Le jeu de données est composé de trois tables. 
 - La table **EXPORT** contient des informations sur des articles de presse : date de l'événement, informations sur les acteurs mentionnés, informations sur l'événement, etc... 
 - La table **MENTIONS** met en relation les articles qui se mentionnent entre eux.
@@ -47,14 +48,18 @@ Le jeu de données est composé de trois tables.
 
 <img src="figures/tables_schema.PNG" alt="drawing" width="700"/>
 
-## 1.2. Choix des technologies <a name="_part12"></a>
-[comment]: <> (=================================================================================================================================)
+## 1.2. Environnement technique <a name="_part12"></a>
+
+<img src="figures/Env_Tech.png" alt="drawing" width="800"/>
+
+## 1.3. Choix des technologies <a name="_part13"></a>
 
 <img src="figures/Choix_Technologique.png" alt="drawing" width="800"/>
 
-## 1.3. Environnement technique <a name="_part13"></a>
+## 1.4. Architecture <a name="_part14"></a>
 
-<img src="figures/Env_Tech.png" alt="drawing" width="800"/>
+<img src="figures/Data_Pipeline.png" alt="drawing" width="800"/>
+
 
 # 2. Configuration du cluster <a name="_part2"></a>
 [comment]: <> (=================================================================================================================================)
@@ -102,9 +107,6 @@ Le cluster est démarré et les 4 nœeuds sont opérationnels :
 
 ## 2.3. Installation et configuration de Zeppelin <a name="_part23"></a> 
 
-# 3. Data Pipeline <a name="_part5"></a>
-
-<img src="figures/Data_Pipeline.png" alt="drawing" width="800"/>
 
 # Preprocessing <a name="_part6"></a>
 
