@@ -5,7 +5,7 @@
 ##### [Présentation du jeu de données](#_part1)
 ##### [Choix des technologies](#_part2)
 ##### [Configuration du cluster](#_part3)
-
+##### [Preprocessing](#_part4)
 
 [comment]: <> (=================================================================================================================================)
 
@@ -123,4 +123,46 @@ rpc_address : 192.168.3.142
 Configuration de 
 
 
+# Preprocessing <a name="_part4"></a>
+•	Scrapping des URL : 
+    •	masterfilelist.txt
+    •	masterfilelist-translation.txt
+    
+•	Stockage des URL de téléchargement “.zip” dans deux dataframes : 
+    •	Un dataframe pour masterfilelist.txt
+    •	Un dataframe pour masterfilelist-translation.txt
+    
+•	Ajout d’une colonne date aux dataframes en parsant la date contenu dans le lien de chaque URL “.zip”
 
+•	Ajout d’une colonne type aux dataframes en parsant le type du fichier contenu dans le lien de chaque URL “.zip” (ex: type_csv {export, mentions, gkg, export_translation, mentions translation, gkg_translation})
+
+•	Sélection des URL en spécifiant une date de début et une date de fin
+
+•	Les dataframe contiennent donc un triplet d’URL pour chaque YYYY:MM-DD:H:M:S (URL export.zip, URL mentions.zip), URL gkg.zip
+
+•	Vérification de l’URL “.zip” avec la librairie python “validators”
+
+  •	Si une URL “.zip” n’est pas valide alors on supprime le triplet d’URL complet
+  
+•	Fusion des 2 dataframes d’URL “.zip”
+
+•	Lecture des fichiers “.zip” via la librairie python “BytesIO”
+
+•	Ouverture des fichiers “.zip” avec la librairie ZipFile. On obtient un fichier “.csv”
+
+•	Lecture pour chaque type de csv du fichier en question et on le transforme en DataFrame
+
+•	Concaténation des dataframes
+  •	On obtient alors 6 dataframes:
+      •	dataframe export (regroupe tous les fichiers “.csv” de type export qui ont été scrappé pour   une date de début et de fin
+      •	dataframe mentions (regroupe tous les fichiers “.csv” de type mentions qui ont été scrappé pour une date de début et de fin
+      •	dataframe gkg (regroupe tous les fichiers “.csv” de type mentions qui ont été scrappé pour une date de début et de fin
+      •	Idem pour les fichiers “.csv” de type translation
+      
+•	Renommage des colonnes en suivant la convention de nommage indiqué dans la document de GDELT Project
+
+•	Transformation des dates en type datetime
+
+•	Jointure entre des tables mentions_translation et mentions et export
+
+•	Sélection des colonnes en question pour la préparation des ".csv" contenant les informations utiles à chaque requête
