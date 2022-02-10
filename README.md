@@ -204,7 +204,7 @@ def merge_table(df, df_translation):
     return result
 ```
  
- Si une URL “.zip” n’est pas valide alors on supprime le triplet d’URL complet
+Si une URL “.zip” n’est pas valide alors on supprime le triplet d’URL complet
  
 ```python
  def clean_dataset(df):
@@ -243,21 +243,19 @@ def concat_table(result):
 
 ### Lecture des URL zip
 
-•	Lecture des fichiers “.zip” via la librairie python “BytesIO”
-
-•	Ouverture des fichiers “.zip” avec la librairie ZipFile. On obtient un fichier “.csv”
-
-•	Lecture pour chaque type de csv du fichier en question et transformation en DataFrame
-
-•	Concaténation des dataframes du même type
+- Lecture des fichiers “.zip” via la librairie python “BytesIO”
+- Ouverture des fichiers “.zip” avec la librairie ZipFile. On obtient un fichier “.csv”
+- Lecture pour chaque type de csv du fichier en question et transformation en DataFrame
+- Concaténation des dataframes du même type
 
 On obtient les 6 DataFrames suivants :
-      •	dataframe export (regroupe tous les fichiers “.csv” de type export qui ont été scrappé pour   une date de début et de fin
-      •	dataframe mentions (regroupe tous les fichiers “.csv” de type mentions qui ont été scrappé pour une date de début et de fin
-      •	dataframe gkg (regroupe tous les fichiers “.csv” de type mentions qui ont été scrappé pour une date de début et de fin
-      •	Idem pour les fichiers “.csv” de type translation
 
-`
+- dataframe export (regroupe tous les fichiers “.csv” de type export qui ont été scrappé pour une date de début et de fin
+- dataframe mentions (regroupe tous les fichiers “.csv” de type mentions qui ont été scrappé pour une date de début et de fin
+- dataframe gkg (regroupe tous les fichiers “.csv” de type mentions qui ont été scrappé pour une date de début et de fin
+- Idem pour les fichiers “.csv” de type translation
+
+```python
 def read_zip(final):
     
     export = final.loc[final['type_csv'] == 'export', 'url']
@@ -355,14 +353,14 @@ def read_zip(final):
     gkg_translation = pd.concat(df_translation_gkg)
         
     return export, mentions, gkg, export_translation, mentions_translation, gkg_translation
-`
-
+```
 
 ### Preprocessing des dataframes
 
 **Renommage des colonnes**
 
-`def rename_columns(export, mentions, gkg, translation_export, translation_mentions, translation_gkg):
+```python
+def rename_columns(export, mentions, gkg, translation_export, translation_mentions, translation_gkg):
     
     for i in range(export.shape[1]):
         export.rename({i: 'export_'+str(i)}, axis=1, inplace=True)
@@ -383,12 +381,14 @@ def read_zip(final):
         translation_gkg.rename({i: 'gkg_translation_'+str(i)}, axis=1, inplace=True)            
     
     return export, mentions, gkg, translation_export, translation_mentions, translation_gkg
-`
+```
 
 **Data to Datetime**
 
 Transformation des dates en type datetime
-`def date_to_datime(export, mentions, gkg, export_translation, mentions_translation, gkg_translation):
+
+```python
+def date_to_datime(export, mentions, gkg, export_translation, mentions_translation, gkg_translation):
     export["export_1"] = pd.to_datetime(export["export_1"],
                                         format='%Y%m%d')
     mentions["mentions_1"] = pd.to_datetime(mentions["mentions_1"],
@@ -404,9 +404,9 @@ Transformation des dates en type datetime
                                                           format='%Y%m%d%H%M%S')
     
     return export, mentions, gkg, export_translation, mentions_translation, gkg_translation
-`
+```
 
-# Preparation des tables CSV <a name="_part7"></a>
+# Préparation des tables CSV pour les 4 requêtes à effectuer<a name="_part7"></a>
 
 ### REQUETE 1
 
@@ -414,7 +414,8 @@ _Afficher le nombre d’articles par évènement qu’il y a eu pour chaque trip
 
 **Jointure entre des tables mentions_translation et mentions et export**
 
-`def merge_table_bis(export, mentions, mentions_translation):
+```python
+def merge_table_bis(export, mentions, mentions_translation):
     sub_mentions_translation =\
         mentions_translation.loc[:, ["mentions_translation_0", "mentions_translation_14"]]
     sub_mentions_translation["mentions_translation_14"] =\
@@ -424,10 +425,11 @@ _Afficher le nombre d’articles par évènement qu’il y a eu pour chaque trip
     export_mentions_mentions_translation_joined =\
         mentions_mentions_translation.merge(export, left_on="mentions_0", right_on="export_0", how='left')
     return export_mentions_mentions_translation_joined
-`
+```
 
 **Construction de la table CSV pour la requete 1**
-`def requete_1(export_mentions_mentions_translation_joined):
+```python
+def requete_1(export_mentions_mentions_translation_joined):
     requete1 = export_mentions_mentions_translation_joined.loc[:, ["mentions_0", 
                                                                    "mentions_1", 
                                                                    "export_53", 
@@ -460,7 +462,7 @@ _Afficher le nombre d’articles par évènement qu’il y a eu pour chaque trip
     requete1.to_csv(r'/home/ubuntu/csv/requete1/requete1.csv', index=False)
     
     return requete1
-`
+```
 
 <img src="https://github.com/lbeaulieu-git/projet_bigdata_gdelt/blob/main/figures/Req1.png" alt="drawing" width="800"/>
 
@@ -469,7 +471,8 @@ _Afficher le nombre d’articles par évènement qu’il y a eu pour chaque trip
 _Pour un pays donné en paramètre, affichez les événements triés par le nombre de mentions (tri décroissant) et permettez une agrégation par jour/mois/année_
 
 **Construction de la table CSV pour la requete 2**
-`
+
+```python
 def requete_2(export):
 
     requete2 = export.loc[:, ["export_0", "export_1", "export_53", "export_31"]]
@@ -493,7 +496,7 @@ def requete_2(export):
     requete2.to_csv(r'/home/ubuntu/csv/requete2/requete2.csv', index=False)
     
     return requete2
-`
+```
 
 <img src="https://github.com/lbeaulieu-git/projet_bigdata_gdelt/blob/main/figures/Req2.png" alt="drawing" width="800"/>
 
@@ -503,7 +506,7 @@ _Pour une source de donnés passée en paramètre, affichez les thèmes, personn
 
 **Construction de la table CSV pour la requete 3**
 
-`
+```python
 def requete_3(gkg):
     requete3 = gkg.loc[:, ["gkg_0", "gkg_1", "gkg_3", "gkg_7", "gkg_11", "gkg_9", "gkg_15"]]
     
@@ -536,7 +539,7 @@ def requete_3(gkg):
     requete3.to_csv(r'/home/ubuntu/csv/requete3/requete3.csv', index=False)
 
     return requete3
-`
+```
 
 <img src="https://github.com/lbeaulieu-git/projet_bigdata_gdelt/blob/main/figures/Req3.png" alt="drawing" width="800"/>
 
@@ -552,22 +555,14 @@ _Evolution des relations entre deux pays au cours de l’année_
 
 # Requirements <a name="_part9"></a>
 
-`import validators`
-
-`import requests`
-
-`import pandas as pd`
-
-`import numpy as np`
-
-`from io import BytesIO`
-
-`from zipfile import ZipFile`
-
-`from urllib.request import urlopen`
-
-`import datetime`
-
-`import time`
-
-`import sys`
+```python
+import validators
+import requests
+import pandas as pd
+import numpy as np
+from io import BytesIO
+from zipfile import ZipFile
+from urllib.request import urlopen
+import datetime
+import time
+import sys
