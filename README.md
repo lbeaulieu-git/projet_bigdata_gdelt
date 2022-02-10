@@ -20,18 +20,6 @@
 </ol>
 </div>
 
-[comment]: <> (TABLE OF CONTENTS ===============================================================================================================)
-##### [Introduction](#_introduction)
-##### [Présentation du jeu de données](#_part1)
-##### [Choix des technologies](#_part2)
-##### [Environnement technique](#_part3)
-##### [Configuration du cluster](#_part4)
-##### [Data Pipeline](#_part5)
-##### [Preprocessing](#_part6)
-##### [Preparation des tables CSV](#_part7)
-##### [Création des Keyspaces et des trables sur Cassandra](#_part8)
-##### [Requirements](#_part9)
-
 
 [comment]: <> (=================================================================================================================================)
 
