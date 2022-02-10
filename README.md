@@ -1,6 +1,24 @@
 ![alt text](figures/header.png)
 
-# Projet GDELT
+<h2>Table des matières</h2>
+
+<div class="alert alert-block alert-info" style="margin-top: 20px">
+<ol>
+    <li><a href="#_introduction">Introduction</a></li>
+    	<ol>
+    		<li><a href="#_part1">Présentation du jeu de données</a></li>
+    		<li><a href="#_part2">Choix des technologies</a></li>
+        <li><a href="#_part3">Environnement technique</a></li>
+    	</ol>
+    </li>
+    <li><a href="#_part4">Configuration du cluster</a></li></li>
+    <li><a href="#_part5">Data Pipeline</a></li>
+    <li><a href="#_part6">Preprocessing</a></li>
+    <li><a href="#_part7">Preparation des tables CSV</a></li>
+    <li><a href="#_part8">Création des Keyspaces et des trables sur Cassandra</a></li>
+    <li><a href="#_part9">Requirements</a></li>
+</ol>
+</div>
 
 [comment]: <> (TABLE OF CONTENTS ===============================================================================================================)
 ##### [Introduction](#_introduction)
@@ -11,7 +29,7 @@
 ##### [Data Pipeline](#_part5)
 ##### [Preprocessing](#_part6)
 ##### [Preparation des tables CSV](#_part7)
-##### [Création des Keyspaces et des trables sur Cassadra](#_part8)
+##### [Création des Keyspaces et des trables sur Cassandra](#_part8)
 ##### [Requirements](#_part9)
 
 
