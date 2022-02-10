@@ -4,12 +4,13 @@
 ##### [Introduction](#_introduction)
 ##### [Présentation du jeu de données](#_part1)
 ##### [Choix des technologies](#_part2)
-##### [Configuration du cluster](#_part3)
-##### [Data Pipeline](#_part3)
-##### [Preprocessing](#_part4)
-##### [Preparation des tables CSV](#_part5)
-##### [Création des Keyspaces et des trables sur Cassadra](#_part6)
-##### [Requirements](#_part6)
+##### [Environnement technique](#_part3)
+##### [Configuration du cluster](#_part4)
+##### [Data Pipeline](#_part5)
+##### [Preprocessing](#_part6)
+##### [Preparation des tables CSV](#_part7)
+##### [Création des Keyspaces et des trables sur Cassadra](#_part8)
+##### [Requirements](#_part9)
 
 
 [comment]: <> (=================================================================================================================================)
@@ -60,7 +61,7 @@ Pour réaliser ce projet, telles sont les contraintes qui nous sont imposées :
 <img src="figures/Env_Tech.png" alt="drawing" width="800"/>
 
 
-# Configuration du cluster <a name="_part3"></a>
+# Configuration du cluster <a name="_part4"></a>
 [comment]: <> (=================================================================================================================================)
 
 ### Installation de Java 8
@@ -134,11 +135,11 @@ rpc_address : 192.168.3.142
 
 Configuration de 
 
-# Data Pipeline <a name="_part4"></a>
+# Data Pipeline <a name="_part5"></a>
 
 <img src="figures/Data_Pipeline.png" alt="drawing" width="800"/>
 
-# Preprocessing <a name="_part5"></a>
+# Preprocessing <a name="_part6"></a>
 
 ### Scrapping
 
@@ -441,7 +442,7 @@ Transformation des dates en type datetime
     return export, mentions, gkg, export_translation, mentions_translation, gkg_translation
 `
 
-# Preparation des tables CSV <a name="_part6"></a>
+# Preparation des tables CSV <a name="_part7"></a>
 
 ### REQUETE 1
 
@@ -583,9 +584,9 @@ _Evolution des relations entre deux pays au cours de l’année_
 **Construction de la table CSV pour la requete 4**
 <img src="https://github.com/lbeaulieu-git/projet_bigdata_gdelt/blob/main/figures/Req4.png" alt="drawing" width="800"/>
 
-# Création des Keyspaces et des trables sur Cassadra <a name="_part6"></a>
+# Création des Keyspaces et des trables sur Cassadra <a name="_part8"></a>
 
-# Requirements <a name="_part7"></a>
+# Requirements <a name="_part9"></a>
 
 `import validators`
 
