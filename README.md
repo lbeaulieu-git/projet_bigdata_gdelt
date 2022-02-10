@@ -57,10 +57,10 @@ Pour réaliser ce projet, telles sont les contraintes qui nous sont imposées :
 
 ### Installation de Java 8
 
-Mise à jour des tous les packages existants
+Mise à jour des tous les packages existants  
 `sudo apt-get update -y`
 
-Installation des packages
+Installation des packages  
 `sudo apt-get install -y openjdk-8-jre-headless`
 
 Vérification de la bonne exécution des commandes précédentes et des logs
