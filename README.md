@@ -35,37 +35,20 @@ L'objectif est de concevoir un système de stockage distribué résilient aux pa
 # Présentation du jeu de données <a name="_part1"></a> 
 [comment]: <> (=================================================================================================================================)
 Le jeu de données est composé de trois tables. 
-- La table Export contient des informations sur des articles de presse : date de l'évènement, informations sur les acteurs mentionnés, informations sur l'évènement... 
-- La table Mentions met en relation les articles mentionnés dans d'autres.
-- La table GKG permet de connecter chaque élément ensemble : personnes, organisations, localisation, thème... pour rendre compte de ce qui se passe dans le monde.
-- it connects every person, organization, location, count, theme,
+- La table **EXPORT** contient des informations sur des articles de presse : date de l'événement, informations sur les acteurs mentionnés, informations sur l'événement, etc... 
+- La table **MENTIONS** met en relation les articles qui se mentionnent entre eux.
+- La table **GKG** permet de connecter chaque élément des articles : personnes, organisations, localisation, thématiques...
 
-
-<img src="figures/tables_schema.PNG" alt="drawing" width="700"/>
-
+<center><img src="figures/tables_schema.PNG" alt="drawing" width="700"/></center>
 
 # Choix des technologies <a name="_part2"></a>
 [comment]: <> (=================================================================================================================================)
 
-La technologie que nous avons retenu est Cassandra. Bien que la scalabilité ne soit pas nécessairement recherchée puisque l'on travaille sur 5 machines, l'avantage va à Cassandra pour ses multiples noeuds maîtres. Cassandra est tolérant vis-à-vis des pannes et offre une bonne disponibilité des données (architecture P2P et réplication des données). Cassandra est relativement rapide en écriture. Par ailleurs, contrairement à la tolérance aux pannes, la vitesse de lecture n’est pas une contrainte pour le projet.
-Enfin, les VM de l’école disposent d’une RAM limitée, rendant MongoDB peu opérant dans l’utilisation de la mémoire pour le stockage des données de travail.
-L’avantage va donc à Cassandra.
-
-<img src="figures/table_cass_vs_mongo.PNG" alt="drawing" width="800"/>
-
-<img src="figures/Choix_Technologique.png" alt="drawing" width="800"/>
-
+<center><<img src="figures/Choix_Technologique.png" alt="drawing" width="800"/></center>
 
 # Environnement technique <a name="_part3"></a>
 
-Pour réaliser ce projet, telles sont les contraintes qui nous sont imposées :
--	Peu d’espace disque disponible (maximum 200 Go en tout, données système comprises)
--	Peu de RAM sur les VM
--	Tolérance à la panne d’un nœud nécessaire
--	Accès aux données moyennement rapide (<5min ?)
-
-<img src="figures/Env_Tech.png" alt="drawing" width="800"/>
-
+<center><<img src="figures/Env_Tech.png" alt="drawing" width="800"/></center>
 
 # Configuration du cluster <a name="_part4"></a>
 [comment]: <> (=================================================================================================================================)
