@@ -80,7 +80,8 @@ Décompression et suppression de l'archive
 `tar xzvf apache-cassandra-4.0.1-bin.tar.gz`  
 
 `rm -r apache-cassandra-4.0.1-bin.tar.gz`  
-  
+ 
+ L'installation s'est correctement terminée :
  <img src="figures/java-3.png" alt="drawing" width="800"/>
  
 ### Configuration de Cassandra
