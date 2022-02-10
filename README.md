@@ -31,10 +31,6 @@ Le jeu de données est composé de trois tables.
 
 <img src="figures/tables_schema.PNG" alt="drawing" width="700"/>
 
-Configuration du cluster
-
-
-
 
 # Choix des technologies <a name="_part2"></a>
 [comment]: <> (=================================================================================================================================)
@@ -63,15 +59,63 @@ Mise à jour des tous les packages existants
 Installation des packages  
 `sudo apt-get install -y openjdk-8-jre-headless`
 
-Vérification de la bonne exécution des commandes précédentes et des logs
-<img src="figures/java-1.png" alt="drawing" width="800"/>
+Vérification de la bonne exécution des commandes précédentes et des logs  
+<img src="figures/java-1.png" alt="drawing" width="800"/>  
+  
 <img src="figures/java-2.png" alt="drawing" width="800"/>
 
 
 ### Installation de Cassandra
 
-Téléchargement des fichiers d'installation
+Téléchargement des fichiers d'installation  
 `wget https://dlcdn.apache.org/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz`
+
+Vérification de l’intégrité du paquet téléchargé
+`gpg --print-md SHA256 apache-cassandra-4.0.1-bin.tar.gz`
+
+Décompression et suppression de l'archive
+`tar xzvf apache-cassandra-4.0.1-bin.tar.gz`  
+`rm -r apache-cassandra-4.0.1-bin.tar.gz`  
+  
+ <img src="figures/java-.png" alt="drawing" width="800"/>
+ 
+### Configuration de Cassandra
+Les machines utilisées pour le projet sont :  
+  
+tp-hadoop-15 | 192.168.3.187  
+tp-hadoop-12 | 192.168.3.93  
+tp-hadoop-33 | 192.168.3.46  
+tp-hadoop-11 | 192.168.3.168  
+tp-hadoop-19 | 192.168.3.142  
+
+Configuration du fichier apache-cassandra-4.0.1/conf/cassandra.yaml
+
+**Sur tp-hadoop-15 :**
+seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"
+listen_address : 192.168.3.187
+rpc_address : 192.168.3.187
+
+**Sur tp-hadoop-12 :**
+seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"
+listen_address : 192.168.3.93
+rpc_address : 192.168.3.93
+
+**Sur tp-hadoop-33 :**
+seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"
+listen_address : 192.168.3.46
+rpc_address : 192.168.3.46
+
+**Sur tp-hadoop-11 :**
+seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"
+listen_address : 192.168.3.168
+rpc_address : 192.168.3.168
+
+**Sur tp-hadoop-19 :**
+seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"
+listen_address : 192.168.3.142
+rpc_address : 192.168.3.142
+
+
 
 
 
