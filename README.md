@@ -604,23 +604,23 @@ print("Done")
 
 Le test du code sur une demi-journée donne les résultats suivants :
 
-<img src="figures/preproc.png" width="800"/>
+<img src="figures/preproc.png"/>
 
 # 4. Intégration des données <a name="_part4"></a>
 
 ## 4.1. Création du keyspace et des tables Cassandra<a name="_part41"></a>
 
-<img src="figures/keyspace.png" width="800"/>
+<img src="figures/keyspace.png"/>
 
-<img src="figures/t1.png" width="800"/>
+<img src="figures/t1.png"/>
 
-<img src="figures/t2.png" width="800"/>
+<img src="figures/t2.png"/>
 
-<img src="figures/t31.png" width="800"/>
+<img src="figures/t31.png"/>
 
-<img src="figures/t32.png" width="800"/>
+<img src="figures/t32.png"/>
 
-<img src="figures/t33.png" width="800"/>
+<img src="figures/t33.png"/>
 
 ## 4.2. Importation des données dans les tables Cassandra<a name="_part42"></a>
 
