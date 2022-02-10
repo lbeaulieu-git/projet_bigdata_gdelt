@@ -53,6 +53,8 @@ Pour réaliser ce projet, telles sont les contraintes qui nous sont imposées :
 
 <img src="figures/table_cass_vs_mongo.PNG" alt="drawing" width="800"/>
 
+<img src="figures/Choix_Technologique.png" alt="drawing" width="800"/>
+
 # Configuration du cluster <a name="_part3"></a>
 [comment]: <> (=================================================================================================================================)
 
