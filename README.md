@@ -78,7 +78,7 @@ wget https://dlcdn.apache.org/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz
 Configuration du fichier apache-cassandra-4.0.1/conf/cassandra.yaml
 
 ```console
-seeds : "<IP_nœeud_1, IP_nœeud_2 ...>"  
+seeds : "<IP_nœeud_1>, <IP_nœeud_2>, ..."  
 listen_address : <IP_nœud_courant> 
 rpc_address : <IP_nœud_courant>
 ```
@@ -90,6 +90,7 @@ $ apache-cassandra-4.0.1/bin/cassandra
 $ apache-cassandra-4.0.1/bin/nodetool status
 ```
 
+Le cluster est démarré et les 4 nœeuds sont opérationnels :
 <img src="figures/nodetool.png" width="800"/>
 
 
@@ -115,7 +116,7 @@ $ apache-cassandra-4.0.1/bin/nodetool status
 
 **masterfilelist.txt**
 
-`
+```python
   def masterfilelist(nb_url, start_date, end_date):
       response = requests.get("http://data.gdeltproject.org/gdeltv2/masterfilelist.txt")
       content = response.content.decode("utf-8") 
