@@ -58,46 +58,40 @@ Puisque le cluster est de taille restreinte, l'installation et la configuration 
 ### Installation de Java 8
 
 Mise à jour des tous les packages existants  
-`sudo apt-get update -y`
+```console
+sudo apt-get update -y
+```
 
 Installation des packages  
-`sudo apt-get install -y openjdk-8-jre-headless`
+```console
+sudo apt-get install -y openjdk-8-jre-headless
+```
 
 ### Installation et configuration de Cassandra
 
 Téléchargement de la dernière version stable (4.0.1) :
 
-`wget https://dlcdn.apache.org/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz`
+```console
+wget https://dlcdn.apache.org/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz
+```
 
 Configuration du fichier apache-cassandra-4.0.1/conf/cassandra.yaml
 
 ```console
-seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
-listen_address : 192.168.3.187  
-rpc_address : 192.168.3.187
+seeds : "<IP_nœeud_1, IP_nœeud_2 ...>"  
+listen_address : <IP_nœud_courant> 
+rpc_address : <IP_nœud_courant>
 ```
 
-**Sur tp-hadoop-12 :**  
-seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
-listen_address : 192.168.3.93  
-rpc_address : 192.168.3.93  
+Une fois la configuration terminée, on démarre Cassandra sur chaque machine et on vérifie l'état du cluster :
 
-**Sur tp-hadoop-33 :**  
-seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
-listen_address : 192.168.3.46  
-rpc_address : 192.168.3.46  
+```console
+$ apache-cassandra-4.0.1/bin/cassandra
+$ apache-cassandra-4.0.1/bin/nodetool status
+```
 
-**Sur tp-hadoop-11 :**  
-seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
-listen_address : 192.168.3.168  
-rpc_address : 192.168.3.168  
+<img src="figures/nodetool.png" width="800"/>
 
-**Sur tp-hadoop-19 :**  
-seeds : "192.168.3.187,192.168.3.93,192.168.3.46,192.168.3.168,192.168.3.142"  
-listen_address : 192.168.3.142  
-rpc_address : 192.168.3.142  
-
-Configuration de 
 
 # Data Pipeline <a name="_part5"></a>
 
